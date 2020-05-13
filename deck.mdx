@@ -1,152 +1,162 @@
-import {
-  CodeSurfer,
-  CodeSurferColumns,
-  Step,
-} from "code-surfer";
-import { github, vsDark } from "@code-surfer/themes";
+import { CodeSurfer } from "code-surfer";
+import { vsDark } from "@code-surfer/themes";
 
 export const theme = vsDark;
 
-# Hello 👋
+# These 7 shell tricks will blow your mind! 🤯
 
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
+<img src="https://github.com/warrenseine/shell-tricks/blob/master/shell.png?raw=true" />
 
 ---
 
 <CodeSurfer>
 
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
+```bash title="Shorter error output redirection"
+echo "Error!" >/dev/stderr
 
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
+# can be written
+echo "Error!" 1>&2
 
-  if (!sit || ut < 1) {
-    return [];
-  }
+# or, shorter
+echo "Error!" >&2
 
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+# or better, at the beginning of the line
+>&2 echo "Error!"
 ```
 
-```js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function adipiscing(...elit) {
-  if (!elit.sit) {
-    return [];
-  }
-
-  const sed = elit[0];
-  return eiusmod.tempor(sed) ? sed : [sed];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+```diff 1
 ```
 
-```diff 1[10:14],2[15:19],3[22:27],10:12
+```diff 3:4
+```
+
+```diff 6:7
+```
+
+```diff 9:10
+```
+
+```bash title="Change directory quickly"
+# home, just like `cd ~`
+cd
+
+# previous directory
+cd -
+
+# skip `cd` completely (zsh-specific)
+setopt autocd
+
+# with a stack
+pushd foo       # in /foo
+pushd bar       # in /foo/bar
+popd            # in /foo
+popd            # in /
+```
+
+```diff 1:2
 
 ```
 
+```diff 4:5
+
+```
+
+```diff 7:8
+
+```
+
+```diff 10:15
+
+```
+
+```bash title="Debug shell scripts"
+# exit on error
+set -e
+
+# print all the commands
+set -x
+
+# print all the commands and inputs, even more verbose
+set -v
+```
+
+```diff 1:2
+
+```
+
+```diff 4:5
+
+```
+
+```diff 7:8
+
+```
+
+```bash title="Read files"
+# stream file content
+tail -f file.log
+
+# cat, but backwards
+tac file.log
+```
+
+```diff 1:2
+
+```
+
+```diff 4:5
+
+```
+
+```bash title="VS Code as default editor"
+export EDITOR="code -w"
+
+# now you can even edit the current command line
+# in VS Code with Ctrl + X, Ctrl + E
+```
+
+```diff 1
+
+```
+
+```diff 3:4
+
+```
+
+```bash title="Default values"
+WORKSPACE="${WORKSPACE:-/path/to/workspace}"
+
+: "${WORKSPACE:=/path/to/workspace}"
+```
+
+```diff 1
+
+```
+
+```diff 3
+
+```
+
+```bash title="Ternaries"
+true && X=42 || X=51
+
+[ -f package.json ] && npm start || {
+  >&2 echo "Missing package.json"
+  exit 1
+}
+```
+
+```diff 1
+
+```
+
+```diff 3:6
+
+```
 </CodeSurfer>
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
-
-<Step>
-
-```js
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
-```
-
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
-```
-
-</Step>
-
-<Step>
-
-```js
-const lorem = (ipsum, dolor, sit) => {
-  const amet = dolor - ipsum;
-  return consectetur.adipiscing(
-    {
-      elit: sed.eiusmod(sit - dolor) / amet + 2,
-    },
-    (tempor, incididunt) => ipsum + amet * incididunt
-  );
-};
-
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
-```
-
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
-
-const sed = (eiusmod, tempor, incididunt) => {
-  const ut = tempor - eiusmod;
-  return labore.et(
-    {
-      amet: dolore.magna(incididunt - tempor) / ut + 2,
-    },
-    (aliqua, elit) => eiusmod + ut * elit
-  );
-};
-```
-
-</Step>
-
-</CodeSurferColumns>
-
----
-
-docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+Good reads:
+- [The Art of the Command-line](https://github.com/jlevy/the-art-of-command-line)
+- [ShellCheck](https://github.com/koalaman/shellcheck)

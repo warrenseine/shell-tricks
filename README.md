@@ -1,6 +1,6 @@
-# MDX Deck + Code Surfer template
+# These 7 shell tricks will blow your mind! 🤯
 
-This project was generated with the `npm init code-surfer-deck` command.
+A presentation made to test [Code Surfer](https://codesurfer.pomb.us/).
 
 ## Development
 
@@ -20,4 +20,4 @@ To build the presentation deck:
 npm run build
 ```
 
-For more documentation see [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us/)
+For more documentation see [MDX Deck](https://github.com/jxnblk/mdx-deck).

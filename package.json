@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
-    "test": "echo \"there are no tests\""
+    "build": "rm -rf docs && mdx-deck build deck.mdx --basepath /docs && mv public docs"
   },
   "devDependencies": {
     "code-surfer": "3.1.0",
